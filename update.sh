@@ -1,5 +1,6 @@
 #!/bin/bash
 
+WORKING_DIR='./'
 REPOS=`find . -name ".git"|cut -d "/" -f 2`
 REPO_ROOT=`pwd`
 
@@ -7,6 +8,7 @@ if [ -z $1 ] ; then
     echo "commit message needed"
     exit 0
 fi
+
 
 for REPO in ${REPOS} ;do
     cd ${REPO}
