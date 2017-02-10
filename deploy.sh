@@ -1,7 +1,7 @@
 #!/bin/bash
 
 MACHINE="default"
-FILE="./docker-compose.yml"
+DIR="./"
 
 if [ -z "$1" ]; then
   echo "Missing Machine name"
@@ -12,12 +12,14 @@ fi
 if [ -z "$2" ]; then
   echo "Using default compose file"
 else
-  FILE=$2
+  DIR=$2
 fi
 
 HOST_IP=`docker-machine ip`
 
 eval "$(docker-machine env $MACHINE)"
+cd $DIR
+eval "$(docker-compose build)"
+eval "$(docker-compose up)"
 
-eval "$(docker-compose -f $FILE build)"
-eval "$(docker-compose -f $FILE up)""
+cd -

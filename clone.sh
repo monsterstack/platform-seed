@@ -26,6 +26,7 @@ git clone https://github.com/monsterstack/discovery-service.git -b development .
 git clone https://github.com/monsterstack/location-service.git -b development ../git-source/cdsp-location-services/location-service
 
 git clone https://github.com/monsterstack/mdn-service.git -b development ../git-source/cdsp-mdn-services/mdn-service
+git clone https://github.com/monsterstack/mdn-email-worker.git -b development ../git-source/cdsp-mdn-services/mdn-email-worker
 
 git clone https://github.com/monsterstack/payment-service.git -b development ../git-source/cdsp-payment-services/payment-service
 
