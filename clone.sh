@@ -27,6 +27,9 @@ git clone https://github.com/monsterstack/location-service.git -b development ..
 
 git clone https://github.com/monsterstack/mdn-service.git -b development ../git-source/cdsp-mdn-services/mdn-service
 git clone https://github.com/monsterstack/mdn-email-worker.git -b development ../git-source/cdsp-mdn-services/mdn-email-worker
+git clone https://github.com/monsterstack/mdn-sms-worker.git -b development ../git-source/cdsp-mdn-services/mdn-sms-worker
+git clone https://github.com/monsterstack/mdn-web-worker.git -b development ../git-source/cdsp-mdn-services/mdn-web-worker
+git clone https://github.com/monsterstack/mdn-push-worker.git -b development ../git-source/cdsp-mdn-services/mdn-push-worker
 
 git clone https://github.com/monsterstack/payment-service.git -b development ../git-source/cdsp-payment-services/payment-service
 
@@ -34,4 +37,6 @@ git clone https://github.com/monsterstack/security-service.git -b development ..
 git clone https://github.com/monsterstack/security-model.git -b development ../git-source/cdsp-security-services/security-model
 
 git clone https://github.com/monsterstack/tenant-model.git -b development ../git-source/cdsp-tenant-services/tenant-model
+git clone https://github.com/monsterstack/tenant-middleware.git -b development ../git-source/cdsp-tenant-services/tenant-middleware
+
 git clone https://github.com/monsterstack/tenant-service.git -b development ../git-source/cdsp-tenant-services/tenant-service
