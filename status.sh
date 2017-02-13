@@ -1,11 +1,36 @@
 #!/bin/bash
+# Update all git directories below current directory or specified directory
+# Skips directories that contain a file called .ignore
 
-REPOS=`find . -name ".git"|cut -d "/" -f 2`
-REPO_ROOT=`pwd`
+HIGHLIGHT="\e[01;34m"
+NORMAL='\e[00m'
 
-for REPO in ${REPOS} ;do
-    cd ${REPO}
-    echo ${REPO}
-    git status
-    cd ${REPO_ROOT}
-done
+function update {
+  local d="$1"
+  if [ -d "$d" ]; then
+    if [ -e "$d/.ignore" ]; then
+      echo -e "\n${HIGHLIGHT}Ignoring $d${NORMAL}"
+    else
+      cd $d > /dev/null
+      if [ -d ".git" ]; then
+        echo -e "\n${HIGHLIGHT}Status Check `pwd`$NORMAL"
+        git status
+      else
+        scan *
+      fi
+      cd .. > /dev/null
+    fi
+  fi
+  #echo "Exiting update: pwd=`pwd`"
+}
+
+function scan {
+  #echo "`pwd`"
+  for x in $*; do
+    update "$x"
+  done
+}
+
+if [ "$1" != "" ]; then cd $1 > /dev/null; fi
+echo -e "${HIGHLIGHT}Scanning ${PWD}${NORMAL}"
+scan *
