@@ -8,7 +8,7 @@ if [ $# -eq 0 ]
         exit 1
 fi
 
-LOCAL_REPOS=`find . -name ".git"|cut -d "/" -f 2`
+LOCAL_REPOS=`find \`pwd\` -name ".git"|rev|cut -d "/" -f 2-|rev`
 # echo $LOCAL_REPOS
 
 REPO_ROOT=`pwd`
