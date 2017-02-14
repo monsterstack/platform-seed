@@ -16,8 +16,13 @@ REPO_ROOT=`pwd`
 for REPO in ${LOCAL_REPOS} ;do
     cd ${REPO}
     echo "$REPO"
-    pullCommand=`git pull origin $BRANCH`
-    echo -e "==>$pullCommand\n--------"
+    if [ `find . -name ".ignore"` ]; then
+        echo -e "Ignoring $REPO\n"
+    else
+        pullCommand=`git pull origin $BRANCH`
+        echo -e "==>$pullCommand"
+    fi
+    echo "--------"
     cd ${REPO_ROOT}
 done
 cd ${REPO_ROOT}
