@@ -84,7 +84,7 @@ for thisPath in localReposPath:
 repoStatusTemp=str(gitPullstdout).split("\n--------\n")
 for r in repoStatusTemp:
     if(r):
-        thisRepo = localRepos.get(r.split("\n==>")[0])
+        thisRepo = localRepos.get(r.split("\n==>")[0].split("/")[-1])
         thisRepo.gitStatus = r.split("\n==>")[1]
         if(thisRepo.gitStatus!="Already up-to-date."):
             updatedRepoNameArr.append(thisRepo.repoName)
