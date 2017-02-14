@@ -132,7 +132,7 @@ while (affectedRepoNameArr != installedRepoNameArr):
         for dependency in installedRepoNameArr:
             if (dependency in localRepos.get(temp).dependencies):
                 shutil.rmtree(dependency, True)
-                call(["cp -R ../../"+dependency+" ./"], shell=True)
+                call(["cp -R "+localRepos.get(dependency).path[:-1]+" ./"], shell=True)
         os.chdir("..")
 
         if(temp not in installedRepoNameArr):
