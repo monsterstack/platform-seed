@@ -84,7 +84,7 @@ for thisPath in localReposPath:
 repoStatusTemp=str(gitPullstdout).split("\n--------\n")
 for r in repoStatusTemp:
     if(r):
-        if("Ignoring" not in r):
+        if("Ignoring" not in r) and ("Aborting" not in r):
             thisRepo = localRepos.get(r.split("\n==>")[0].split("/")[-1])
             thisRepo.gitStatus = r.split("\n==>")[1]
             if(thisRepo.gitStatus!="Already up-to-date."):
