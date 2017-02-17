@@ -122,11 +122,11 @@ while (affectedRepoNameArr != installedRepoNameArr):
         print temp
 
         if (os.path.exists('node_modules')==False):
-            call(['npm install'], shell=True)
+            call(['npm install > /dev/null'], shell=True)
         if (temp in changedReops):
             # print "!!!"
             shutil.rmtree('node_modules', True)
-            call(['npm install'], shell=True)
+            call(['npm install > /dev/null'], shell=True)
 
         os.chdir("node_modules")
         for dependency in installedRepoNameArr:
@@ -142,7 +142,7 @@ while (affectedRepoNameArr != installedRepoNameArr):
     # print installedRepoNameArr
 
 if(len(installedRepoNameArr)==0):
-    print "Everything is up-to-date."
+    print ">>>Nothing to install<<<"
 else:
     print installedRepoNameArr
-    print "Update finished."
+    print ">>>Update finished<<<"

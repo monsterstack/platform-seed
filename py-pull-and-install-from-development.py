@@ -48,6 +48,7 @@ print "Pull from: " + branchName + " branch."
 subp1 = subprocess.Popen(['bash','./helper-git-pull.sh', branchName], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 gitPullstdout , gitPullstderr = subp1.communicate()
 print gitPullstdout
+print gitPullstderr
 
 
 # Get repo absolute path
@@ -84,10 +85,10 @@ for thisPath in localReposPath:
 repoStatusTemp=str(gitPullstdout).split("\n--------\n")
 for r in repoStatusTemp:
     if(r):
-        if("Ignoring" not in r) and ("Aborting" not in r):
+        if("Ignoring" not in r):
             thisRepo = localRepos.get(r.split("\n==>")[0].split("/")[-1])
             thisRepo.gitStatus = r.split("\n==>")[1]
-            if(thisRepo.gitStatus!="Already up-to-date."):
+            if(thisRepo.gitStatus!="Already up-to-date.") and (("file changed," in thisRepo.gitStatus) or ("files changed,") in thisRepo.gitStatus):
                 updatedRepoNameArr.append(thisRepo.repoName)
 
 
@@ -134,7 +135,7 @@ while (affectedRepoNameArr != installedRepoNameArr):
         print temp
         shutil.rmtree('node_modules', True)
         if(os.path.exists("package.json")):
-            call(['npm install'], shell=True)
+            call(['npm install > /dev/null'], shell=True)
         if(temp not in installedRepoNameArr):
             installedRepoNameArr.append(temp)
         os.chdir(rootPath)
@@ -142,7 +143,7 @@ while (affectedRepoNameArr != installedRepoNameArr):
     # print installedRepoNameArr
 
 if(len(installedRepoNameArr)==0):
-    print "Everything is up-to-date."
+    print ">>>Nothing to install<<<"
 else:
     print installedRepoNameArr
-    print "Update finished."
+    print ">>>Update finished<<<"
