@@ -8,6 +8,7 @@ mkdir ../git-source/cdsp-mdn-services
 mkdir ../git-source/cdsp-payment-services
 mkdir ../git-source/cdsp-security-services
 mkdir ../git-source/cdsp-tenant-services
+mkdir ../git-source/cdsp-replica-services
 
 # Set up Repos
 git clone https://github.com/monsterstack/core-server.git -b development ../git-source/cdsp-core/core-server
@@ -15,6 +16,8 @@ git clone https://github.com/monsterstack/core-worker.git -b development ../git-
 
 git clone https://github.com/monsterstack/multi-tenancy-db.git -b development ../git-source/cdsp-core/multi-tenancy-db
 git clone https://github.com/monsterstack/stash.git -b development ../git-source/cdsp-core/stash
+
+git clone https://github.com/monsterstack/replica-service.git -b development ../git-source/cdsp-replica-services/replica-service
 
 git clone https://github.com/monsterstack/discovery-client.git -b development ../git-source/cdsp-discovery-services/discovery-client
 git clone https://github.com/monsterstack/discovery-model.git -b development ../git-source/cdsp-discovery-services/discovery-model
