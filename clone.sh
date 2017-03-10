@@ -26,6 +26,7 @@ git clone https://github.com/monsterstack/discovery-middleware.git -b developmen
 git clone https://github.com/monsterstack/generator-service-gen.git -b development ../git-source/cdsp-discovery-services/generator-service-gen
 git clone https://github.com/monsterstack/discovery-service.git -b development ../git-source/cdsp-discovery-services/discovery-service
 git clone https://github.com/monsterstack/discovery-test-tools.git -b development ../git-source/cdsp-discovery-services/discovery-test-tools
+git clone https://github.com/monsterstack/discovery-health-worker.git -b development ../git-source/cdsp-discovery-services/discovery-health-worker
 
 git clone https://github.com/monsterstack/location-service.git -b development ../git-source/cdsp-location-services/location-service
 
